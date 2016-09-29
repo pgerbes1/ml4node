@@ -15,6 +15,18 @@ describe('An attempt to create a vector without the new keyword', function() {
 	});
 });
 
+describe('A vector created with static builder methods', function() {
+	it('should return an vector of values with create', function() {
+		expect(Vector.create(3)(x => x)).to.deep.equal(new Vector(0, 1, 2));
+	});
+	it('should return a vector of ones with the ones method', function() {
+		expect(Vector.ones(3)).to.deep.equal(new Vector(1.0, 1.0, 1.0));
+	});
+	it('should return a vector of zeros with the zeros method', function() {
+		expect(Vector.zeros(3)).to.deep.equal(new Vector(0.0, 0.0, 0.0));
+	});
+});
+
 describe('A vector created with an array', function() {
 	it('should be equal to one created without one', function() {
 	   expect(new Vector(1, 1, 1)).to.deep.equal(new Vector([1, 1, 1]));

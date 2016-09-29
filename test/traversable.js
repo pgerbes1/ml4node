@@ -53,3 +53,12 @@ describe('The fold operator on an array', function() {
 			concatStrings)).to.equal('nameage');
 	});
 });
+
+describe('Building arrays with builder functions', function() {
+	it('should build an array of ordered values using tabulate', function() {
+		expect(traversable.tabulate(3)(x => x)).to.deep.equal([0, 1, 2]);
+	});
+	it('should build an array of single value using fill', function() {
+		expect(traversable.fill(3)('test')).to.deep.equal(['test', 'test', 'test']);
+	});
+});
