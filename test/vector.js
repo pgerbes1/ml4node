@@ -5,6 +5,7 @@ var Vector = require('../lib/vector');
 
 var v = new Vector(1, 2, 3); 
 var w = new Vector(1, 2, 1); 
+var intNorm = new Vector(2, 2, 2, 2);
 
 describe('The dimension of a vector', function() {
 	it('should be the number of its entries', function() {
@@ -48,6 +49,12 @@ describe('The sum of a vector', function() {
 describe('The product of a vector', function() {
 	it('should be the product of all its entries', function() {
 		expect(w.product()).to.equal(2);
+	});
+});
+
+describe('The norm of a vector', function() {
+	it('should be the root of the sum of its entries squared', function() {
+		expect(intNorm.norm()).to.equal(4);
 	});
 });
 
