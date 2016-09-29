@@ -1,0 +1,36 @@
+{
+  "name": "ml4node",
+  "version": "1.0.0",
+  "description": "Implementation of basic machine learning in Node.js",
+  "main": "app.js",
+  "private": true,
+   "directories": {
+    "lib": "lib",
+    "test": "test"
+    },
+  "scripts": {
+    "test": "npm run testsuite && npm run linter && npm run coverage",
+    "testsuite": "./node_modules/.bin/mocha test/** --recursive",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --recursive",
+    "linter": "./node_modules/.bin/jshint --config .jshintrc ./scripts ./lib ./test"
+  },
+  "author": {
+    "name" : "Patrick Gerbes",
+    "email": "patrickgerbes@gmail.com"
+  },
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pgerbes1/ml4node.git"
+  },
+  "dependencies": {
+    "async": "^2.0.1"
+  },
+    "devDependencies": {
+    "chai": "^2.2.0",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.13",
+    "jshint": "2.8.0",
+    "mocha": "^2.2.4"
+  }
+}

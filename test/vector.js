@@ -1,0 +1,88 @@
+'use strict'; 
+
+var expect = require('chai').expect;
+var Vector = require('../lib/vector');
+
+var v = new Vector(1, 2, 3); 
+var w = new Vector(1, 2, 1); 
+
+describe('The dimension of a vector', function() {
+	it('should be the number of its entries', function() {
+		expect(v.dimension).to.equal(3);
+	});
+});
+
+describe('Scalar operations on vectors', function() {
+	it('should return a vector for addition', function() {
+		expect(v.addScalar(1)).to.be.instanceof(Vector);
+	});
+	it('should add the same number to each index', function() {
+		expect(v.addScalar(1)).to.deep.equal(new Vector(2, 3, 4)); 
+	});
+	it('should return a vector for subtraction', function() {
+		expect(v.subtractScalar(1)).to.be.instanceof(Vector);
+	});
+	it('should subtract the same number from each index', function() {
+		expect(v.subtractScalar(1)).to.deep.equal(new Vector(0, 1, 2)); 
+	});
+	it('should return a vector for multiplication', function() {
+		expect(v.multiplyScalar(2)).to.be.instanceof(Vector);
+	});
+	it('should multiply each index by the same value', function() {
+		expect(v.multiplyScalar(2)).to.deep.equal(new Vector(2, 4, 6)); 
+	});
+	it('should return a vector for division', function() {
+		expect(w.divideScalar(2)).to.be.instanceof(Vector);
+	});
+	it('should divide each index by the same value', function() {
+		expect(w.divideScalar(2)).to.deep.equal(new Vector(0.5, 1, 0.5)); 
+	});
+});
+
+describe('The sum of a vector', function() {
+	it('should be the sum of all its entries', function() {
+		expect(v.sum()).to.equal(6);
+	});
+});
+
+describe('The product of a vector', function() {
+	it('should be the product of all its entries', function() {
+		expect(w.product()).to.equal(2);
+	});
+});
+
+describe('The dot product of two vectors', function() {
+	it('should return a scalar', function() {
+		expect(v.dot(w)).to.be.a('number');
+	});
+	it('should return the sum of their element-wise multiplication', function () {
+		expect(v.dot(w)).to.equal(8);
+	});
+});
+
+describe('Element-wise vector operations', function() {
+	it('should return a vector for addition', function() {
+		expect(v.add(w)).to.be.instanceof(Vector);
+	});
+	it('should add values with the same index', function() {
+		expect(v.add(w)).to.deep.equal(new Vector(2, 4, 4)); 
+	});
+	it('should return a vector for subtraction', function() {
+		expect(v.subtract(w)).to.be.instanceof(Vector);
+	});
+	it('should subtract values with the same index', function() {
+		expect(v.subtract(w)).to.deep.equal(new Vector(0, 0, 2)); 
+	});
+	it('should return a vector for multiplication', function() {
+		expect(v.multiply(w)).to.be.instanceof(Vector);
+	});
+	it('should multiply values with the same index', function() {
+		expect(v.multiply(w)).to.deep.equal(new Vector(1, 4, 3)); 
+	});
+	it('should return a vector for division', function() {
+		expect(v.divide(w)).to.be.instanceof(Vector);
+	});
+	it('should divide values with the same index', function() {
+		expect(v.divide(w)).to.deep.equal(new Vector(1, 1, 3)); 
+	});
+});
