@@ -25,7 +25,7 @@ describe('The dimension of a vector', function() {
 	it('should be a scalar', function() {
 		expect(w.dimension).to.be.a('number');
 	});
-	it('should be the number of its entries', function() {
+	it('should be the number of its elements', function() {
 		expect(v.dimension).to.equal(3);
 	});
 });
@@ -61,7 +61,7 @@ describe('The sum of a vector', function() {
 	it('should return a scalar', function() {
 		expect(v.sum()).to.be.a('number');
 	});
-	it('should be the sum of all its entries', function() {
+	it('should be the sum of all its elements', function() {
 		expect(v.sum()).to.equal(6);
 	});
 });
@@ -70,7 +70,7 @@ describe('The product of a vector', function() {
 	it('should return a scalar', function() {
 		expect(w.product()).to.be.a('number');
 	});
-	it('should be the product of all its entries', function() {
+	it('should be the product of all its elements', function() {
 		expect(w.product()).to.equal(2);
 	});
 });
@@ -79,7 +79,7 @@ describe('The norm of a vector', function() {
 	it('should return a scalar', function() {
 		expect(intNorm.norm()).to.be.a('number');
 	});
-	it('should be the root of the sum of its entries squared', function() {
+	it('should be the root of the sum of its elements squared', function() {
 		expect(intNorm.norm()).to.equal(4);
 	});
 });
@@ -88,7 +88,7 @@ describe('The unit of a vector', function() {
 	it('should return a vector', function() {
 		expect(intNorm.unit()).to.be.instanceof(Vector);
 	});
-	it('should be its entries divided by its norm', function() {
+	it('should be its elements divided by its norm', function() {
 		expect(intNorm.unit()).to.deep.equal(new Vector(0.5, 0.5, 0.5, 0.5));
 	});
 });
