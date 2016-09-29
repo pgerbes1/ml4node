@@ -25,6 +25,9 @@ describe('A vector created with static builder methods', function() {
 	it('should return a vector of zeros with the zeros method', function() {
 		expect(Vector.zeros(3)).to.deep.equal(new Vector(0.0, 0.0, 0.0));
 	});
+	it('should return a vector of numbers with the random method', function() {
+		expect(Vector.random(3).sum()).to.be.at.most(3);
+	});
 });
 
 describe('A vector created with an array', function() {
@@ -39,6 +42,12 @@ describe('The dimension of a vector', function() {
 	});
 	it('should be the number of its elements', function() {
 		expect(v.dimension).to.equal(3);
+	});
+});
+
+describe('The dimensional array of a vector', function() {
+	it('should be an array with the first entry always one', function() {
+		expect(v.dimensions()).to.deep.equal([1, 3]);
 	});
 });
 
@@ -111,6 +120,21 @@ describe('The dot product of two vectors', function() {
 	});
 	it('should return the sum of their element-wise multiplication', function () {
 		expect(v.dot(w)).to.equal(8);
+	});
+});
+
+describe('The distance between two vectors', function() {
+	it('should be a scalar in L1', function() {
+		expect(v.L1Distance(w)).to.be.a('number');
+	});
+	it('should be a scalar in L2', function() {
+		expect(v.L2Distance(w)).to.be.a('number');
+	});
+	it('should correctly calculated in L1', function() {
+		expect(v.L1Distance(w)).to.equal(2); 
+	});
+	it('should correctly calculated in L2', function() {
+		expect(v.L2Distance(w)).to.equal(2); 
 	});
 });
 
