@@ -8,6 +8,9 @@ var w = new Vector(1, 2, 1);
 var intNorm = new Vector(2, 2, 2, 2);
 
 describe('The dimension of a vector', function() {
+	it('should be a scalar', function() {
+		expect(w.dimension).to.be.a('number');
+	});
 	it('should be the number of its entries', function() {
 		expect(v.dimension).to.equal(3);
 	});
@@ -41,24 +44,36 @@ describe('Scalar operations on vectors', function() {
 });
 
 describe('The sum of a vector', function() {
+	it('should return a scalar', function() {
+		expect(v.sum()).to.be.a('number');
+	});
 	it('should be the sum of all its entries', function() {
 		expect(v.sum()).to.equal(6);
 	});
 });
 
 describe('The product of a vector', function() {
+	it('should return a scalar', function() {
+		expect(w.product()).to.be.a('number');
+	});
 	it('should be the product of all its entries', function() {
 		expect(w.product()).to.equal(2);
 	});
 });
 
 describe('The norm of a vector', function() {
+	it('should return a scalar', function() {
+		expect(intNorm.norm()).to.be.a('number');
+	});
 	it('should be the root of the sum of its entries squared', function() {
 		expect(intNorm.norm()).to.equal(4);
 	});
 });
 
 describe('The unit of a vector', function() {
+	it('should return a vector', function() {
+		expect(intNorm.unit()).to.be.instanceof(Vector);
+	});
 	it('should be its entries divided by its norm', function() {
 		expect(intNorm.unit()).to.deep.equal(new Vector(0.5, 0.5, 0.5, 0.5));
 	});
