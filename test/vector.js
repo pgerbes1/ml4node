@@ -58,6 +58,12 @@ describe('The norm of a vector', function() {
 	});
 });
 
+describe('The unit of a vector', function() {
+	it('should be its entries divided by its norm', function() {
+		expect(intNorm.unit()).to.deep.equal(new Vector(0.5, 0.5, 0.5, 0.5));
+	});
+});
+
 describe('The dot product of two vectors', function() {
 	it('should return a scalar', function() {
 		expect(v.dot(w)).to.be.a('number');
