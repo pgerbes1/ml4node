@@ -7,6 +7,12 @@ var v = new Vector(1, 2, 3);
 var w = new Vector(1, 2, 1); 
 var intNorm = new Vector(2, 2, 2, 2);
 
+describe('A vector created with an array', function() {
+	it('should be equal to one created without one', function() {
+	   expect(new Vector(1, 1, 1)).to.deep.equal(new Vector([1, 1, 1]));
+	});
+});
+
 describe('The dimension of a vector', function() {
 	it('should be a scalar', function() {
 		expect(w.dimension).to.be.a('number');
