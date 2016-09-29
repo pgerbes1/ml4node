@@ -7,6 +7,14 @@ var v = new Vector(1, 2, 3);
 var w = new Vector(1, 2, 1); 
 var intNorm = new Vector(2, 2, 2, 2);
 
+describe('An attempt to create a vector without the new keyword', function() {
+	it('should throw a syntax error', function() {
+		expect(function() { 
+			Vector(1, 1);
+		}).to.throw(Error);
+	});
+});
+
 describe('A vector created with an array', function() {
 	it('should be equal to one created without one', function() {
 	   expect(new Vector(1, 1, 1)).to.deep.equal(new Vector([1, 1, 1]));
