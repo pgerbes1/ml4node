@@ -25,6 +25,10 @@ describe('The isNumericArray function', function() {
 	it('should return false for arrays with non-numbers', function() {
 		expect(utils.isNumericArray(nonNumeric)).to.equal(false);
 	});
+	it('should return false for non-arrays', function() {
+		expect(utils.isNumericArray(5)).to.equal(false);
+		expect(utils.isNumericArray('five')).to.equal(false);
+	});
 });
 
 describe('The isArrayOfArray function', function() {
