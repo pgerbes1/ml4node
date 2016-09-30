@@ -36,6 +36,12 @@ describe('A vector created with an array', function() {
 	});
 });
 
+describe('A vector combined with another', function() {
+	it('should be equal to a vector of both their elements', function() {
+	   expect(v.combineElem(w)).to.deep.equal(new Vector([1, 2, 3, 1, 2, 1]));
+	});
+});
+
 describe('A vector casted to an array', function() {
 	it('should be equal to an array of its elements', function() {
 	   expect(v.asArray()).to.deep.equal([1, 2, 3]);
