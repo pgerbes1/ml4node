@@ -6,7 +6,7 @@ var utils = require('../lib/utils');
 var numericArray = [1, 2, 3]; 
 var nonNumericArray = [1, 2, 'Not Number'];
 
-describe('The has isNumericArray function', function() {
+describe('The isNumericArray function', function() {
 	it('should return true for arrays of all numbers', function() {
 		expect(utils.isNumericArray(numericArray)).to.equal(true);
 	});
