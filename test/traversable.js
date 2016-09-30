@@ -15,7 +15,12 @@ var flatTestOne = [[1, 2, 3],[4, 5, 6]];
 var flatTestTwo = [[1, 2], [3, 4, 5, 6]];
 var flatTestThree = [[1, 2], [3], [4, 5], [6]]; 
 var flatTestFour = [[1, 2, 3], 4, [5], 6]; 
+var groupTestOne = [[1, 2, 3], [4, 5, 6]]; 
+var groupTestTwo = [[1, 2], [3, 4], [5, 6]]; 
+var groupTestThree = [[1, 2, 3, 4, 5, 6]]; 
+var groupTestFour = [[1], [2], [3], [4], [5], [6]]; 
 var flatExpected = [1, 2, 3, 4, 5, 6]; 
+
 
 describe('Zipping two arrays together', function() {
 	it('should return an array of numeric arrays', function() {
@@ -75,5 +80,14 @@ describe('Flattening arrays with flaten function', function() {
 		expect(traversable.flatten(flatTestTwo)).to.deep.equal(flatExpected);
 		expect(traversable.flatten(flatTestThree)).to.deep.equal(flatExpected);
 		expect(traversable.flatten(flatTestFour)).to.deep.equal(flatExpected);
+	});
+});
+
+describe('Grouping arrays with group function', function() {
+	it('should group to array of array in all cases', function() {
+		expect(traversable.group(flatExpected)(3)).to.deep.equal(groupTestOne);
+		expect(traversable.group(flatExpected)(2)).to.deep.equal(groupTestTwo);
+		expect(traversable.group(flatExpected)(6)).to.deep.equal(groupTestThree);
+		expect(traversable.group(flatExpected)(1)).to.deep.equal(groupTestFour);
 	});
 });
