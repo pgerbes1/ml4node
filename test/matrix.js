@@ -15,6 +15,9 @@ var badAA = [[1, 2], [3, 'four']];
 var testMatrix = new Matrix(nonSquareAA);
 var squareMatrix = new Matrix(squareAA); 
 
+var A = new Matrix([[1, 1], [1, 1]]);
+var B = new Matrix([[1, 1], [1, 1]]);
+
 describe('Instantiating a matrix', function() {
 	it('should correctly interpret a well formed array of array', 
 		function() {
@@ -145,5 +148,20 @@ describe('Getting the diagonals of a matrix', function() {
 		expect(squareMatrix.diags()).to.deep.equal([1, 4]);
 		expect(new Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]).diags())
 		.to.deep.equal([1, 5, 9]); 
+	});
+});
+
+describe('Element-wise matrix operations', function() {
+	it('should add values with the same index', function() {
+		expect(A.add(B)).to.deep.equal(new Matrix([2, 2, 2, 2], 2, 2)); 
+	});
+	it('should subtract values with the same index', function() {
+		expect(A.subtract(B)).to.deep.equal(new Matrix([0, 0, 0, 0], 2, 2)); 
+	});
+	it('should multiply values with the same index', function() {
+		expect(A.multiply(B)).to.deep.equal(new Matrix([1, 1, 1, 1], 2, 2)); 
+	});
+	it('should divide values with the same index', function() {
+		expect(A.divide(B)).to.deep.equal(new Matrix([1, 1, 1, 1], 2, 2)); 
 	});
 });
