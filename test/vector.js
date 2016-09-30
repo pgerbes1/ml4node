@@ -123,6 +123,17 @@ describe('The dot product of two vectors', function() {
 	});
 });
 
+describe('The vector projection of two vectors', function() {
+	it('should return a vector', function() {
+		expect(v.vecProjection(w)).to.be.instanceof(Vector);
+	});
+	it('should calculate (a.b / b.b) * b', function () {
+		expect(v.vecProjection(w)).to.deep.equal(new 
+			Vector([ 1.3333333333333333, 2.6666666666666665, 1.3333333333333333])
+			);
+	});
+});
+
 describe('The distance between two vectors', function() {
 	it('should be a scalar in L1', function() {
 		expect(v.L1Distance(w)).to.be.a('number');
