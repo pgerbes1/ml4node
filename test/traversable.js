@@ -11,6 +11,12 @@ var stringArrayTwo = ['Bob', '32'];
 var addNumbers = (x, y) => x + y; 
 var concatStrings = (s, p) => s.concat(p);
 
+var flatTestOne = [[1, 2, 3],[4, 5, 6]];
+var flatTestTwo = [[1, 2], [3, 4, 5, 6]];
+var flatTestThree = [[1, 2], [3], [4, 5], [6]]; 
+var flatTestFour = [[1, 2, 3], 4, [5], 6]; 
+var flatExpected = [1, 2, 3, 4, 5, 6]; 
+
 describe('Zipping two arrays together', function() {
 	it('should return an array of numeric arrays', function() {
 		var zippedNumericArray = traversable.zip(numericArrayOne, numericArrayTwo);
@@ -60,5 +66,14 @@ describe('Building arrays with builder functions', function() {
 	});
 	it('should build an array of single value using fill', function() {
 		expect(traversable.fill(3)('test')).to.deep.equal(['test', 'test', 'test']);
+	});
+});
+
+describe('Flattening arrays with flaten function', function() {
+	it('should flatten to a single array in all cases', function() {
+		expect(traversable.flatten(flatTestOne)).to.deep.equal(flatExpected);
+		expect(traversable.flatten(flatTestTwo)).to.deep.equal(flatExpected);
+		expect(traversable.flatten(flatTestThree)).to.deep.equal(flatExpected);
+		expect(traversable.flatten(flatTestFour)).to.deep.equal(flatExpected);
 	});
 });
