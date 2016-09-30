@@ -1,7 +1,7 @@
 'use strict'; 
 
 var expect = require('chai').expect;
-var utils = require('../lib/utils');
+var utils = require('../lib/array-utils');
 
 var numericArray = [1, 2, 3]; 
 var nonNumericArray = [1, 2, 'Not Number'];
