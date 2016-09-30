@@ -5,9 +5,6 @@ var Matrix = require('../lib/matrix');
 
 var m = new Matrix([1, 2, 3, 4], 2, 2); 
 
-console.log(m);
-console.log(m.dimensions());
-
 describe('Instantiating a matrix', function() {
 	it('should throw an error if not enough data to construct', function() {
 		expect(function() { 
