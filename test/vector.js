@@ -36,6 +36,12 @@ describe('A vector created with an array', function() {
 	});
 });
 
+describe('A vector casted to an array', function() {
+	it('should be equal to an array of its elements', function() {
+	   expect(v.asArray()).to.deep.equal([1, 2, 3]);
+	});
+});
+
 describe('The dimension of a vector', function() {
 	it('should be a scalar', function() {
 		expect(w.dimension).to.be.a('number');
