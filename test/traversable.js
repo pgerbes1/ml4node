@@ -15,6 +15,7 @@ var flatTestOne = [[1, 2, 3],[4, 5, 6]];
 var flatTestTwo = [[1, 2], [3, 4, 5, 6]];
 var flatTestThree = [[1, 2], [3], [4, 5], [6]]; 
 var flatTestFour = [[1, 2, 3], 4, [5], 6]; 
+var highlyNested = [ [ [1, [2]], [3], [[4, 5]], [6]]];
 var groupTestOne = [[1, 2, 3], [4, 5, 6]]; 
 var groupTestTwo = [[1, 2], [3, 4], [5, 6]]; 
 var groupTestThree = [[1, 2, 3, 4, 5, 6]]; 
@@ -75,11 +76,13 @@ describe('Building arrays with builder functions', function() {
 });
 
 describe('Flattening arrays with flaten function', function() {
-	it('should flatten to a single array in all cases', function() {
+	it('should flatten to a single array no matter how nested the input is', 
+		function() {
 		expect(traversable.flatten(flatTestOne)).to.deep.equal(flatExpected);
 		expect(traversable.flatten(flatTestTwo)).to.deep.equal(flatExpected);
 		expect(traversable.flatten(flatTestThree)).to.deep.equal(flatExpected);
 		expect(traversable.flatten(flatTestFour)).to.deep.equal(flatExpected);
+		expect(traversable.flatten(highlyNested)).to.deep.equal(flatExpected);
 	});
 });
 
