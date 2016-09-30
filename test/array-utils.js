@@ -18,6 +18,9 @@ var mixTypeLengthAA = [['zero', 1], [1, 2, 'three']];
 var AAAndNumber = [[1, 2], 3];
 var AAAndString = [[1, 2], 'three']; 
 
+var deepArray = [ [[1, 2],[3, 4]], [[5, 6], [7, 8]]]; 
+var deepArrayTwo = [ [[1, 2],[3, 4]], [[5, 6], [7, 8]]]; 
+
 describe('The isNumericArray function', function() {
 	it('should return true for arrays of all numbers', function() {
 		expect(utils.isNumericArray(numeric)).to.equal(true);
@@ -122,5 +125,17 @@ describe('The subArraysAreNumericAndSameLength function', function() {
 	    	)).to.equal(false);
 	    expect(utils.subArraysAreNumericAndSameLength(1)).to.equal(false);
 	    expect(utils.subArraysAreNumericAndSameLength('one')).to.equal(false);
+	});
+});
+
+describe('The arraysAreEqual function', function() {
+	it('should return true for arrays that have same elements', function() {
+		expect(utils.arraysAreEqual(deepArray, deepArrayTwo)).to.equal(true);
+	});
+	it('should return false for arrays with different elements', function() {
+		expect(utils.arraysAreEqual([1, 2], [1, 3])).to.equal(false);
+	});
+	it('should return false for non-arrays', function() {
+		expect(utils.arraysAreEqual([1,2], 5)).to.equal(false);
 	});
 });
