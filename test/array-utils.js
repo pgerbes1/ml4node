@@ -138,4 +138,12 @@ describe('The arraysAreEqual function', function() {
 	it('should return false for non-arrays', function() {
 		expect(utils.arraysAreEqual([1,2], 5)).to.equal(false);
 	});
+	it('should return false for arrays of unequal length', function() {
+		expect(utils.arraysAreEqual([1,2], [1, 2, 3])).to.equal(false);
+	});
+	it('should return false for arrays with different sub-arrays', function() {
+		expect(utils.arraysAreEqual(
+			[[1,2],[3, 4]],[[1, 2],[3, 5]])
+		).to.equal(false);
+	});
 });
