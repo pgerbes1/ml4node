@@ -72,6 +72,28 @@ describe('The dimensions of a matrix', function() {
 	});
 });
 
+describe('A matrix created with static builder methods', function() {
+	it('should return an matrix of values with create', function() {
+		expect(
+			Matrix.create(2, 2)(x => x)
+			).to.deep.equal(new Matrix([0, 1, 2, 3], 2, 2));
+	});
+	it('should return a matrix of ones with the ones method', function() {
+		expect(Matrix.ones(2, 2)).to.deep.equal(
+			new Matrix([[1.0, 1.0], [1.0, 1.0]])
+			);
+	});
+	it('should return a matrix of zeros with the zeros method', function() {
+		expect(Matrix.zeros(2, 2)).to.deep.equal(
+			new Matrix([[0.0, 0.0], [0.0, 0.0]])
+			);
+	});
+	it('should return an identity matrix with the identity method', function() {
+		expect(Matrix.identity(3)).to.deep.equal(
+			new Matrix([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0]]));
+	});
+});
+
 describe('Coverting a matrix to an array', function() {
 	it('should be an array containing its elements', function() {
 		expect(testMatrix.asArray()).to.deep.equal([[1, 2, 3 ], [ 4, 5, 6 ]]);
