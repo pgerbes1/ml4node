@@ -63,6 +63,17 @@ describe('The dimensional array of a vector', function() {
 	});
 });
 
+describe('The get method of a vector', function() {
+	it('should return the element at index i', function() {
+		expect(v.get(2)).to.equal(3);
+	});
+	it('should throw an error if index does not exist', function() {
+		expect(function() { 
+			v.get(4);
+		}).to.throw(Error);
+	});
+});
+
 describe('Scalar operations on vectors', function() {
 	it('should return a vector for addition', function() {
 		expect(v.addScalar(1)).to.be.instanceof(Vector);
