@@ -78,6 +78,17 @@ describe('Coverting a matrix to an array', function() {
 	});
 });
 
+describe('The get method of Matrix', function() {
+	it('should return the element at row i and col j', function() {
+		expect(squareMatrix.get(0, 1)).to.equal(2);
+	});
+	it('should throw an error if index does not exist', function() {
+		expect(function() { 
+			squareMatrix.get(0, 2);
+		}).to.throw(Error);
+	});
+});
+
 describe('The transpose of a matrix', function() {
 	it('should have row sums equal to the originals column sums', 
 		function() {
