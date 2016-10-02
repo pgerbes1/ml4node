@@ -100,6 +100,34 @@ describe('Coverting a matrix to an array', function() {
 	});
 });
 
+describe('Binding two matrices by row', function() {
+	it('should fail if A.cols !== B.cols', 
+		function() {
+		expect(function() { 
+			  testMatrix.rowBind(squareMatrix);
+		}).to.throw(Error);
+	});
+	it('should be a new matrix containing elements of both', function() {
+		expect(squareMatrix.rowBind(A)).to.deep.equal(
+			new Matrix([ [ 1, 2 ], [ 2, 4 ], [ 1, 1 ], [ 1, 1 ] ])
+			);
+	});
+});
+
+describe('Binding two matrices by column', function() {
+	it('should fail if A.rows !== B.rows', 
+		function() {
+		expect(function() { 
+			  testMatrix.colBind(new Matrix([[1], [2], [3]]));
+		}).to.throw(Error);
+	});
+	it('should be a new matrix containing elements of both', function() {
+		expect(squareMatrix.colBind(testMatrix)).to.deep.equal(
+			new Matrix([ [ 1, 2, 1, 2, 3 ], [ 2, 4, 4, 5, 6 ] ])
+			);
+	});
+});
+
 describe('The get method of Matrix', function() {
 	it('should return the element at row i and col j', function() {
 		expect(squareMatrix.get(0, 1)).to.equal(2);
