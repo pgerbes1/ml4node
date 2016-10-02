@@ -139,6 +139,24 @@ describe('Multiplying two matrices', function() {
 	});
 });
 
+describe('Row operations on the rows of a matrix', function() {
+	it('should be an array of the result of a function on each row vector', 
+		function() {
+		expect(
+			testMatrix.rowOp(x => Math.max.apply(null, x))
+			).to.deep.equal([3, 6]);
+	});
+});
+
+describe('Column operations on the columns of a matrix', function() {
+	it('should be an array of the result of a function on each column vector', 
+		function() {
+		expect(
+			testMatrix.colOp(x => Math.max.apply(null, x))
+			).to.deep.equal([4, 5, 6]);
+	});
+});
+
 describe('Summing the rows of a matrix', function() {
 	it('should be an array containing the sum of each row vector', 
 		function() {
@@ -150,6 +168,20 @@ describe('Summing the columns of a matrix', function() {
 	it('should be an array containing the sum of each column vector', 
 		function() {
 		expect(testMatrix.colSums()).to.deep.equal([5, 7, 9]);
+	});
+});
+
+describe('Getting the mean of each matrix row', function() {
+	it('should be the result of the mean function on each row vector', 
+		function() {
+		expect(testMatrix.rowMeans()).to.deep.equal([2, 5]);
+	});
+});
+
+describe('Getting the mean of each matrix row', function() {
+	it('should be the result of the mean function on each row vector', 
+		function() {
+		expect(testMatrix.colMeans()).to.deep.equal([2.5, 3.5, 4.5]);
 	});
 });
 
