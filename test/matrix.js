@@ -17,6 +17,8 @@ var squareMatrix = new Matrix(squareAA);
 
 var A = new Matrix([[1, 1], [1, 1]]);
 var B = new Matrix([[1, 1], [1, 1]]);
+var testSet = Matrix.zeros(2, 2); 
+var testSwap = new Matrix([[1, 1], [2, 2]]); 
 
 describe('Instantiating a matrix', function() {
 	it('should correctly interpret a well formed array of array', 
@@ -135,6 +137,32 @@ describe('The get method of Matrix', function() {
 	it('should throw an error if index does not exist', function() {
 		expect(function() { 
 			squareMatrix.get(0, 2);
+		}).to.throw(Error);
+	});
+});
+
+describe('The set method of Matrix', function() {
+	it('should replace the element at row i and col j', function() {
+		expect(testSet.set(0, 0, 2)).to.deep.equal(
+			new Matrix([2, 0, 0, 0], 2, 2)
+			);
+	});
+	it('should throw an error if index does not exist', function() {
+		expect(function() { 
+			testSet.set(0, 2);
+		}).to.throw(Error);
+	});
+});
+
+describe('The swap method of Matrix', function() {
+	it('should replace the element at row i and col j', function() {
+		expect(testSwap.swap(0, 1)).to.deep.equal(
+			new Matrix([2, 2, 1, 1], 2, 2)
+			);
+	});
+	it('should throw an error if index does not exist', function() {
+		expect(function() { 
+			testSwap.swap(0, 2);
 		}).to.throw(Error);
 	});
 });
