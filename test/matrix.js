@@ -20,6 +20,9 @@ var B = new Matrix([[1, 1], [1, 1]]);
 var testSet = Matrix.zeros(2, 2); 
 var testSwap = new Matrix([[1, 1], [2, 2]]); 
 
+var gaussElimTest = new Matrix([[1, 2, 3], [3, 4, 5]]);
+var gaussResult = new Matrix([[1, 2, 3], [0, -2, -4]]);
+
 describe('Instantiating a matrix', function() {
 	it('should correctly interpret a well formed array of array', 
 		function() {
@@ -71,6 +74,18 @@ describe('Instantiating a matrix', function() {
 describe('The dimensions of a matrix', function() {
 	it('should be an array with its cols and rows', function() {
 		expect(squareMat.dimensions()).to.deep.equal([2, 2]);
+	});
+});
+
+describe('The map method of Matrix', function() {
+	it('should return a new matrix with the function applied to each element', 
+		function() {
+		expect(A.map(x => x + 1)).to.deep.equal(new Matrix([2, 2, 2, 2], 2, 2));
+	});
+	it('should throw an error if index does not exist', function() {
+		expect(function() { 
+			squareMatrix.get(0, 2);
+		}).to.throw(Error);
 	});
 });
 
@@ -284,5 +299,11 @@ describe('Element-wise matrix operations', function() {
 	});
 	it('should divide values with the same index', function() {
 		expect(A.divide(B)).to.deep.equal(new Matrix([1, 1, 1, 1], 2, 2)); 
+	});
+});
+
+describe('Putting Matrix as upper triangular', function() {
+	it('should put matrix rows in reduced form', function() {
+		expect(gaussElimTest.upperTriangular()).to.deep.equal(gaussResult);
 	});
 });
