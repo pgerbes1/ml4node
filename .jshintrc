@@ -23,9 +23,9 @@
   "undef": true,
   "unused": true,
   "maxparams": 4,
-  "maxstatements": 14,
+  "maxstatements": 20,
   "maxcomplexity": 10,
-  "maxdepth": 3,
+  "maxdepth": 5,
   "maxlen": 80,
   "multistr": true,
   "predef": [
