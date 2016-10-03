@@ -59,8 +59,6 @@ for (var i = 0; i < iters; i++) {
 
 var testResults = trainNeuralNetwork(ins, out, 50000);
 console.log(testResults);
-
-var out = new Matrix([[0, 1, 1, 0]]).transpose();
 ```
 Output:
 
