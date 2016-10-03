@@ -12,7 +12,8 @@
     "test": "npm run testsuite && npm run linter && npm run coverage",
     "testsuite": "./node_modules/.bin/mocha test/** --recursive",
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --recursive",
-    "linter": "./node_modules/.bin/jshint --config .jshintrc ./scripts ./lib ./test"
+    "linter": "./node_modules/.bin/jshint --config .jshintrc ./scripts ./lib ./test",
+    "nn-test": "./scripts/nn.js"
   },
   "author": {
     "name" : "Patrick Gerbes",
