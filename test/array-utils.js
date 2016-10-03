@@ -34,6 +34,12 @@ describe('The isNumericArray function', function() {
 	});
 });
 
+describe('The maxIndex function', function() {
+	it('should return index of largest number', function() {
+		expect(utils.maxIndex(numeric)).to.equal(2);
+	});
+});
+
 describe('The isArrayOfArray function', function() {
 	it('should return true for arrays containing only arrays', function() {
 		expect(utils.isArrayOfArray(numericAA)).to.equal(true);
