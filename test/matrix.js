@@ -29,10 +29,6 @@ describe('Instantiating a matrix', function() {
 		expect(new Matrix(squareAA).dimensions()).to.deep.equal([2, 2]);
 		expect(new Matrix(nonSquareAA).dimensions()).to.deep.equal([2, 3]);
 	});
-	it('should return a vector if given an array and rows is set to one', 
-		function() {
-		expect(new Matrix(goodArray, 1)).to.deep.equal(new Vector(goodArray));
-	});
 	it('should throw an error if array has sub-array of different lengths', 
 		function() {
 		expect(function() { 
