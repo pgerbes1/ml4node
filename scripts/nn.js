@@ -1,7 +1,7 @@
 'use strict'; 
 
 const Matrix = require('../lib/matrix');
-const sigmoid = require('../lib/utils').sigmoid;
+const sigmoid = require('../lib/math').sigmoid;
 
   var ins = new Matrix([
     [0, 0, 1],
