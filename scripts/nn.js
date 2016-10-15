@@ -23,12 +23,12 @@ var hiddenWeights = Matrix.create(output.rows, output.cols)(
    () => sd * Math.random() + mean
    );
 
-var inputLayer = input.mMult(inputWeights).map(sigmoid());
-var hiddenLayer = inputLayer.mMult(hiddenWeights).map(sigmoid());
+var inputLayer = input.mMult(inputWeights).map(sigmoid(false));
+var hiddenLayer = inputLayer.mMult(hiddenWeights).map(sigmoid(false));
 
 for (var i = 0; i < iters; i++) {
-   inputLayer = input.mMult(inputWeights).map(sigmoid());
-   hiddenLayer = inputLayer.mMult(hiddenWeights).map(sigmoid());
+   inputLayer = input.mMult(inputWeights).map(sigmoid(false));
+   hiddenLayer = inputLayer.mMult(hiddenWeights).map(sigmoid(false));
 
     var hiddenError = output.subtract(hiddenLayer).multiply(
     	hiddenLayer.map(sigmoid(true))
