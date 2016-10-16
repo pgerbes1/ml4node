@@ -13,7 +13,7 @@ algebra necessary for building machine learning models.
 'use strict'; 
 
 const Matrix = require('../lib/matrix');
-const sigmoid = require('../lib/utils').sigmoid;
+const sigmoid = require('../lib/math').sigmoid;
 
   var ins = new Matrix([
     [0, 0, 1],
@@ -35,23 +35,23 @@ var hiddenWeights = Matrix.create(output.rows, output.cols)(
    () => sd * Math.random() + mean
    );
 
-var inputLayer = input.mMult(inputWeights).map(sigmoid());
-var hiddenLayer = inputLayer.mMult(hiddenWeights).map(sigmoid());
+var inputLayer = input.mMult(inputWeights).map(sigmoid(false));
+var hiddenLayer = inputLayer.mMult(hiddenWeights).map(sigmoid(false));
 
 for (var i = 0; i < iters; i++) {
-   inputLayer = input.mMult(inputWeights).map(sigmoid());
-   hiddenLayer = inputLayer.mMult(hiddenWeights).map(sigmoid());
+   inputLayer = input.mMult(inputWeights).map(sigmoid(false));
+   hiddenLayer = inputLayer.mMult(hiddenWeights).map(sigmoid(false));
 
     var hiddenError = output.subtract(hiddenLayer).multiply(
-    	hiddenLayer.map(sigmoid(true))
-    	);
+      hiddenLayer.map(sigmoid(true))
+      );
     var inputError = hiddenError.mMult(hiddenWeights.transpose()).multiply(
-    	inputLayer.map(sigmoid(true))
-    	);
+      inputLayer.map(sigmoid(true))
+      );
 
     hiddenWeights = hiddenWeights.add(
-    	inputLayer.transpose().mMult(hiddenError)
-    	);
+      inputLayer.transpose().mMult(hiddenError)
+      );
     inputWeights = inputWeights.add(input.transpose().mMult(inputError));
   }
  return hiddenLayer;
